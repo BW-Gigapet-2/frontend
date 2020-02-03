@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+// ------- Dependencies ----------
+import React, { useState, useEffect } from 'react';
+import { Route, BrowserRouter as Router, Link, Switch} from 'react-router-dom';
+
+// -------Styling ---------
 import './App.css';
 
+// ------ Hooks ----------
+import { axiosWithAuth } from './utils/axiosWithAuth';
+import { PrivateRoute } from './components/PrivateRoute';
+
+
+//----- Components -------
+import Login from './components/Login';
+import Register from './components/Register';
+import { FoodLog } from './components/FoodLog';
+import { Dashboard } from './components/';
+import { AddFoodForm } from './components/AddFoodForm';
+
+//  -------- func ---------
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
