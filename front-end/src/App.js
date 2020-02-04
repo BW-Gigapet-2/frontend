@@ -33,18 +33,19 @@ useEffect(() => {
     })
     .catch(err => console.log(err.res, 'Err'))
   }
-}, []);
+}, [changeMade]);
 
   return (
     <div className="App">
-      <UserContext.Provider value={{petFoodLog,setChange, setPetFoodLog, foodState, setFoodState}}>
-      <nav>
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
+      <UserContext.Provider value={{petFoodLog,setChange, setPetFoodLog}}>
+        <h2> It's working in App.js </h2>
+        <Router>
+        {/* <Link path='/login' component={Login} />
+        <Link path='/register' component={Register} /> */}
         {/* <PrivateRoute path='/dashboard' component={Dashboard} /> */}
-        <PrivateRoute exact path='/dashboard' component={Dashboard} />
-        <PrivateRoute exact path='/foodlog' component={FoodLog} />
-      </nav>
+        <Route exact path='/dashboard' component={Dashboard} />
+        <Route exact path='/foodlog' component={FoodLog} />
+        </Router>
       </UserContext.Provider>
     </div>
   );
