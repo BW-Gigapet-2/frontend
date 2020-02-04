@@ -18,6 +18,11 @@ import { Dashboard } from './components/Dashboard';
 import { AddFoodForm } from './components/AddFoodForm';
 import UserContext from './components/UserContext';
 
+// Hard Code
+const hardCode = [
+  1
+]
+
 //  -------- func ---------
 function App() {
 
@@ -38,13 +43,12 @@ useEffect(() => {
   return (
     <div className="App">
       <UserContext.Provider value={{petFoodLog,setChange, setPetFoodLog}}>
-        <h2> It's working in App.js </h2>
+        {/* <h2> It's working in App.js {hardCode}</h2> */}
         <Router>
         {/* <Link path='/login' component={Login} />
-        <Link path='/register' component={Register} /> */}
-        {/* <PrivateRoute path='/dashboard' component={Dashboard} /> */}
-        <Route exact path='/dashboard' component={Dashboard} />
-        <Route exact path='/foodlog' component={FoodLog} />
+        <Link path='/register' component={Register} />  */}
+        <Route path='/' component={Dashboard} />
+        <PrivateRoute exact path='/' component={AddFoodForm} />
         </Router>
       </UserContext.Provider>
     </div>
