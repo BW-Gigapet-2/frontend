@@ -1,14 +1,12 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-// useContext
-export const UserContext = createContext();
+import React, { useContext, useState, useEffect } from 'react';
+import { UserContext } from './UserContext';
 
 
 // --- component ---
 export const Dashboard = props => {
-    // chart
+    // chart when ready to use this
     const { petFoodLog } = useContext(UserContext);
-    const [  chartData, setChartData ] = useState(petFoodLog);
+    // const [  chartData, setChartData ] = useState(petFoodLog);
     // time
     const [ spanOfTime, setSpanOfTime ] = useState('total');
     const timeSpan = ['total', 'month', 'day'];
@@ -16,13 +14,19 @@ export const Dashboard = props => {
     const [ petLevel, setPetLevel ] = useState(0);
 
     useEffect(() => {
-        let fedPet = petFoodLog.filter( e => e.feeding_date === Date.now()).length;
+        let fedPet = petFoodLog.filter(e => e.feeding_date === Date.now()).length;
         
         if (fedPet === 0) setPetLevel(0);
         if (fedPet === 1) setPetLevel(1);
         if (fedPet === 2) setPetLevel(2);
         if (fedPet > 3) setPetLevel(3);
     }, [petFoodLog])
+
+    // --- day, week, month useEffect ---
+    // useEffect(() => {
+
+    // })
+
 
 return (
     <div>
