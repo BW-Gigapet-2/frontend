@@ -21,7 +21,6 @@ export class AddFoodForm extends Component {
 		})
 	}
 
-<<<<<<< HEAD
 	handleSubmit = e => {
 		e.preventDefault()
 		axiosWithAuth()
@@ -75,56 +74,3 @@ export class AddFoodForm extends Component {
 export default AddFoodForm
 
 // dairy, “fruits”, “grains”, “proteins”, “vegetables”, “treats”
-=======
-    handleSubmit = e => {
-        e.preventDefault();
-        debugger;
-        axiosWithAuth()
-        .post(`/auth/${localStorage.getItem('parents')}/food/0`, this.state.addFood)
-        .then(res => {
-            this.setChange(this.setState())
-        })
-        .catch(err => console.log(err, 'err'));
-        // this.props.addFood(this.state.addFood);
-    };
-
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <input 
-                    type='date'
-                    name="feeding_date"
-                    value={this.state.feeding_date}
-                    placeholder="What is the date you fed your pet on?"
-                    onChange={this.state.handleChanges}
-                    />
-                <select name='food_category' onChange={this.state.handleChanges}>
-                    <option value="dairy">Dairy</option>
-                    <option value="fruit">Fruit</option>
-                    <option value="vegetable">vegetable</option>
-                    <option value="grain">grain</option>
-                    <option value="treat">treat</option>
-                </select>
-                <select name='food_number' onChange={this.state.handleChanges}>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                </select>
-                <input 
-                    type='text'
-                    name="food_name"
-                    value={this.state.food_name}
-                    placeholder="What food did you give your pet?"
-                    onChange={this.state.handleChanges}
-                    />
-
-                    <button> Add </button>
-            </form>
-        );
-    };
-}
-
-export default AddFoodForm;
-
-// dairy, “fruits”, “grains”, “proteins”, “vegetables”, “treats”
->>>>>>> db07846cf73153f8a5d047ad47b7e38a2c3fbd68
