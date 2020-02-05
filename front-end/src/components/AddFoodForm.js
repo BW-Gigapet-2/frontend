@@ -21,9 +21,6 @@ export class AddFoodForm extends Component {
         });
     };
 
-
-
-
     handleSubmit = e => {
         e.preventDefault();
         axiosWithAuth()
@@ -64,98 +61,8 @@ export class AddFoodForm extends Component {
                     placeholder="What food did you give your pet?"
                     onChange={this.state.handleChanges}
                     />
-            {/* <label htmlFor='dairy'>Dairy:</label>
-                <input
-                    type="text"
-                    name="dairy"
-                    placeholder="New task here..."
-                    value={this.state.dairy}
-                    onChange={this.handleChanges}
-                    />
-                <input
-                    type="text"
-                    name="dairynum"
-                    placeholder="New task here..."
-                    value={this.state.dairynum}
-                    onChange={this.handleChanges}
-                    />
-            <label htmlFor='fruits'>Fruits:</label>
-                <input
-                type="text"
-                name="fruits"
-                placeholder="Name of fruit"
-                value={this.state.fruits}
-                onChange={this.handleChanges}
-                />
-                <input
-                    type="text"
-                    name="fruitsnum"
-                    placeholder="Num of fruit"
-                    value={this.state.fruitsnum}
-                    onChange={this.handleChanges}
-                    />
-            <label htmlFor='grains'>Grains:</label>
-                <input
-                type="text"
-                name="grains"
-                placeholder="Name of grains"
-                value={this.state.grains}
-                onChange={this.handleChanges}
-                />
-                <input
-                    type="text"
-                    name="grainsnum"
-                    placeholder="Num of Grains"
-                    value={this.state.grainsnum}
-                    onChange={this.handleChanges}
-                    />
-            <label htmlFor='proteins'>Proteins:</label>
-                <input
-                type="text"
-                name="proteins"
-                placeholder="Name of Protein."
-                value={this.state.proteins}
-                onChange={this.handleChanges}
-                />
-                <input
-                    type="text"
-                    name="proteinsnum"
-                    placeholder="Number of proteins"
-                    value={this.state.proteinsnum}
-                    onChange={this.handleChanges}
-                    />
-            <label htmlFor='vegetables'>vegetables:</label>
-                <input
-                type="text"
-                name="vegetables"
-                placeholder="Name of Vegetables"
-                value={this.state.vegetables}
-                onChange={this.handleChanges}
-                />
-                <input
-                    type="text"
-                    name="vegetablesnum"
-                    placeholder="# of Vegetables"
-                    value={this.state.vegetablesnum}
-                    onChange={this.handleChanges}
-                    />
-            <label htmlFor='treats'>Treats:</label>
-                <input
-                type="text"
-                name="treats"
-                placeholder="Name of Treats"
-                value={this.state.treats}
-                onChange={this.handleChanges}
-                />
-                <input
-                    type="text"
-                    name="treatssnum"
-                    placeholder="Number of Treats"
-                    value={this.state.treatsnum}
-                    onChange={this.handleChanges}
-                    /> */}
 
-                    <button> Add </button>
+                    <button onSubmit={this.handleSubmit}> Add </button>
             </form>
         );
     };

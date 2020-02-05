@@ -43,11 +43,14 @@ useEffect(() => {
   return (
     <div className="App">
       <UserContext.Provider value={{petFoodLog,setChange, setPetFoodLog}}>
+
         {/* <h2> It's working in App.js {hardCode}</h2> */}
         <Router>
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
         {/* <Link path='/login' component={Login} />
         <Link path='/register' component={Register} />  */}
-        <Route path='/' component={Dashboard} />
+        <PrivateRoute exact path='/' component={Dashboard} />
         <PrivateRoute exact path='/' component={AddFoodForm} />
         </Router>
       </UserContext.Provider>
