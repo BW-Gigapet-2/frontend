@@ -31,7 +31,7 @@ export default function Login(props) {
         console.log(register)
     axiosWithAuth()
     //axios
-    .post('/api/auth/login', user)
+    .post('/auth/login', user)
     //.post('/users/login', login)
     .then(res => {
         console.log(res.data)

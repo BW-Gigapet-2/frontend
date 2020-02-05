@@ -23,8 +23,9 @@ export class AddFoodForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        debugger;
         axiosWithAuth()
-        .post(`/auth/${localStorage.getItem('parents')}/food/${this.state}`, this.state.addFood)
+        .post(`/auth/${localStorage.getItem('parents')}/food/0`, this.state.addFood)
         .then(res => {
             this.setChange(this.setState())
         })
@@ -62,15 +63,12 @@ export class AddFoodForm extends Component {
                     onChange={this.state.handleChanges}
                     />
 
-                    <button onSubmit={this.handleSubmit}> Add </button>
+                    <button> Add </button>
             </form>
         );
     };
-
 }
 
 export default AddFoodForm;
-
-
 
 // dairy, “fruits”, “grains”, “proteins”, “vegetables”, “treats”
