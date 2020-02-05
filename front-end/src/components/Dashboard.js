@@ -13,10 +13,10 @@ import { UserContext } from './UserContext';
 export const Dashboard = props => {
     // chart when ready to use this
     const { petFoodLog } = useContext(UserContext);
-    const [  chartData, setChartData ] = useState(petFoodLog);
+    // const [  chartData, setChartData ] = useState(petFoodLog);
     // time
-    const [ spanOfTime, setSpanOfTime ] = useState('total');
-    const timeSpan = ['total', 'month', 'day'];
+    // const [ spanOfTime, setSpanOfTime ] = useState('total');
+    // const timeSpan = ['total', 'month', 'day'];
     // pet level up
     const [ petLevel, setPetLevel ] = useState(0);
 
