@@ -12,7 +12,7 @@ const TabNav = () => {
 					</NavLink>
 				</Menu.Item>
 				<Menu.Item>
-					<NavLink exact to='/create' activeClassName='nav-links'>
+					<NavLink exact to='/meals' activeClassName='nav-links'>
 						+ Create
 					</NavLink>
 				</Menu.Item>

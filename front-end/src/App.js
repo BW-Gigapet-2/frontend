@@ -16,7 +16,6 @@ import history from './history';
 //----- Components -------
 import Login from './components/Login'
 import Register from './components/Register'
-import { FoodLog } from './components/FoodLog'
 import { Dashboard } from './components/Dashboard'
 import { AddFoodForm } from './components/AddFoodForm'
 import UserContext from './components/UserContext'
@@ -63,7 +62,7 @@ function App() {
 				{/* <Link path='/login' component={Login} />
         <Link path='/register' component={Register} />  */}
 				<PrivateRoute exact path='/' component={Dashboard} />
-				<PrivateRoute exact path='/create' component={AddFoodForm} />
+				<PrivateRoute exact path='/meals' component={AddFoodForm} />
 			</UserContext.Provider>
 		</div>
 	)

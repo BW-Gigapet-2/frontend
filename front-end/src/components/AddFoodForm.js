@@ -7,11 +7,10 @@ export class AddFoodForm extends Component {
 	constructor() {
 		super()
 		this.state = {
-			
+			name: '',
 			date: '',
 			category: '',
-			servings: '',
-			name: ''
+			servings: ''
 			
 		}
 	}
@@ -71,7 +70,7 @@ export class AddFoodForm extends Component {
 
 				<label>Name of food:</label>
 				<input 
-					onChange={this.handleChange}
+					onChange={this.handleChanges}
 					type= 'text'
 					name= 'name'
 					placeholder='Name of food'
