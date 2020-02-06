@@ -2,26 +2,22 @@ import React, { Component } from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 export class AddFoodForm extends Component {
-	constructor(props) {
-		super(props)
+	constructor() {
+		super()
 		this.state = {
 			
 			date: '',
 			category: '',
 			servings: '',
-			// name: '',
-			// pet_id: petId
+			name: ''
 			
 		}
 	}
-
-	
 	
 	handleChanges = e => {
 		this.setState({
-				...this.state,
+				...this.state.name,
 				[e.target.name]: e.target.value
-
 		})
 	}
 	
@@ -30,10 +26,11 @@ export class AddFoodForm extends Component {
 		axiosWithAuth()
 		.post(
 			`https://gigapet2021.herokuapp.com/api/meals`,
-			this.state.date
+			this.state
 			)
 			.then(res => {
-				this.setChange(this.setState())
+				console.log('Meal added', res)
+				this.history.push(`/meals`)
 			})
 			.catch(err => console.log(err, 'err'))
 			
@@ -43,18 +40,18 @@ export class AddFoodForm extends Component {
 	render() {
 
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onChange={this.handleChange} onSubmit={this.handleSubmit}>
 			{console.log(this.state)}
 				<label> Date: </label>
 				<input
 					type='date'
 					name='date'
-					value={this.state.date}
+					value={this.date}
 					placeholder='date'
 					onChange={this.handleChanges}
 				/>
 				<label>Category</label>
-				<select name='category' value={this.state.category} onChange={this.handleChanges}>
+				<select name='category' value={this.category} onChange={this.handleChanges}>
 					<option value='dairy'>dairy</option>
 					<option value='fruit'>fruit</option>
 					<option value='grains'>grains</option>
@@ -63,29 +60,22 @@ export class AddFoodForm extends Component {
 					<option value='treats'>treats</option>
 				</select>
 				<label>Servings</label>
-				<select name='servings' value={this.state.servings} onChange={this.handleChanges}>
+				<select name='servings' value={this.servings} onChange={this.handleChanges}>
 					<option value='0'>0</option>
 					<option value='1'>1</option>
 					<option value='2'>2</option>
 					<option value='3'>3</option>
 				</select>
-				{/* <label>Grains</label>
-				<select name='grains' onChange={this.handleChanges}>
-					<option value='0'>0</option>
-					<option value='1'>1</option>
-					<option value='2'>2</option>
-					<option value='3'>3</option>
-				</select>
-				<label>Proteins</label>
-				<select name='proteins' onChange={this.handleChanges}>
-					<option value='0'>0</option>
-					<option value='1'>1</option>
-					<option value='2'>2</option>
-					<option value='3'>3</option>
-				</select> */}
 
-
-
+				<label>Name of food:</label>
+				<input 
+					onChange={this.handleChange}
+					type= 'text'
+					name= 'name'
+					placeholder='Name of food'
+					value={this.name}
+					/>
+				
 				<button> Add </button>
 			</form>
 		)

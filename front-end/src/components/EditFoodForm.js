@@ -26,7 +26,7 @@ const saveEdit = e => {
 e.preventDefault();
 
 axiosWithAuth()
-.put(`https://gigapet2020.herokuapp.com/api/parents/food/${}`, foodToEdit)
+.put(` https://gigapet2021.herokuapp.com/api/meals`, foodToEdit)
 .then(() => {
     axiosWithAuth()
     .get(`https://gigapet2020.herokuapp.com/api/parents/food/`)

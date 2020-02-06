@@ -43,7 +43,7 @@ function App() {
 		
 			axiosWithAuth()
 				.get(
-					`https://gigapet2020.herokuapp.com/api/parents/food/${petFoodLog}`
+					`https://gigapet2021.herokuapp.com/api/meals`
 					// localStorage.getItem('token')
 				)
 				.then(res => {
