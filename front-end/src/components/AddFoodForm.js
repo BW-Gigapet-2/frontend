@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import history from '../history';
+
 
 export class AddFoodForm extends Component {
 	constructor() {
@@ -30,7 +32,7 @@ export class AddFoodForm extends Component {
 			)
 			.then(res => {
 				console.log('Meal added', res)
-				this.history.push(`/meals`)
+				history.push(`/meals`)
 			})
 			.catch(err => console.log(err, 'err'))
 			
