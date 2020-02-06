@@ -4,14 +4,14 @@ import { Route } from 'react-router-dom'
 
 // pragmatic learning and thinking
 // -------Styling ---------
-import './App.css'
+import './App.css';
 
 // ------ Hooks ----------
 import { axiosWithAuth } from './utils/axiosWithAuth'
 import { PrivateRoute } from './components/PrivateRoute'
 
 // -----History-----
-import history from './history'
+import history from './history';
 
 //----- Components -------
 import Login from './components/Login'
@@ -22,8 +22,18 @@ import { AddFoodForm } from './components/AddFoodForm'
 import UserContext from './components/UserContext'
 import TabNav from './components/TabNav'
 
-// Hard Code
-const hardCode = [1]
+const foodArray = [
+	{catFood: {
+		date: '',
+		dairy: '',
+		fruits: '',
+		grains: '',
+		proteins: '',
+		vegetables: '',
+		treats: ''
+	}},
+]
+
 
 //  -------- func ---------
 function App() {
@@ -31,17 +41,17 @@ function App() {
 	const [changeMade, setChange] = useState('')
 
 	useEffect(() => {
-		if (localStorage.getItem('token')) {
+		
 			axiosWithAuth()
 				.get(
-					`/api/auth/${localStorage.getItem('parent_id')}/parents`,
-					localStorage.getItem('token')
+					`https://gigapet2020.herokuapp.com/api/parents/food`
+					// localStorage.getItem('token')
 				)
 				.then(res => {
 					setPetFoodLog(res.data)
 				})
 				.catch(err => console.log(err.res, 'Err'))
-		}
+		
 	}, [changeMade])
 
 	return (

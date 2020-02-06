@@ -6,71 +6,118 @@ export class AddFoodForm extends Component {
 		super()
 		this.state = {
 			addFood: {
-				feeding_date: '',
-				food_category: '',
-				food_number: '',
-				food_name: ''
+				date: '',
+				dairy: '',
+				fruits: '',
+				grains: '',
+				proteins: '',
+				vegetables: '',
+				treats: ''
 			}
 		}
 	}
 
+	
+	
 	handleChanges = e => {
 		this.setState({
-			...this.state.addFood,
-			[e.target.name]: e.target.value
+			addFood: {
+
+				...this.state.addFood,
+				[e.target.name]: e.target.value
+
+			}
 		})
 	}
-
+	
 	handleSubmit = e => {
 		e.preventDefault()
 		axiosWithAuth()
-			.post(
-				`/api/auth/${localStorage.getItem('parents')}/food/${this.state}`,
-				this.state.addFood
+		.post(
+			`https://gigapet2020.herokuapp.com/api/parents/food/`,
+			this.state.addFood
 			)
 			.then(res => {
-				this.setChange(this.setState())
+				this.setChange(res.this.setState())
 			})
 			.catch(err => console.log(err, 'err'))
-		// this.props.addFood(this.state.addFood);
-	}
+			// this.props.addFood(this.state.addFood);
+		}
+		
 
 	render() {
+
 		return (
 			<form onSubmit={this.handleSubmit}>
+			{console.log(this.state.addFood)}
+				<label> Date: </label>
 				<input
 					type='date'
-					name='feeding_date'
-					value={this.state.feeding_date}
-					placeholder='What is the date you fed your pet on?'
-					onChange={this.state.handleChanges}
+					name='date'
+					value={this.state.date}
+					placeholder='date'
+					onChange={this.handleChanges}
 				/>
-				<select name='food_category' onChange={this.state.handleChanges}>
-					<option value='dairy'>Dairy</option>
-					<option value='fruit'>Fruit</option>
-					<option value='vegetable'>vegetable</option>
-					<option value='grain'>grain</option>
-					<option value='treat'>treat</option>
-				</select>
-				<select name='food_number' onChange={this.state.handleChanges}>
+				<label>Dairy</label>
+				<select name='dairy' value={this.state.dairy} onChange={this.handleChanges}>
+					<option value='0'>0</option>
 					<option value='1'>1</option>
 					<option value='2'>2</option>
 					<option value='3'>3</option>
 				</select>
-				<input
-					type='text'
-					name='food_name'
-					value={this.state.food_name}
-					placeholder='What food did you give your pet?'
-					onChange={this.state.handleChanges}
-				/>
+				<label>Fruits</label>
+				<select name='fruits' value={this.state.fruits} onChange={this.handleChanges}>
+					<option value='0'>0</option>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+				</select>
+				<label>Grains</label>
+				<select name='grains' onChange={this.handleChanges}>
+					<option value='0'>0</option>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+				</select>
+				<label>Proteins</label>
+				<select name='proteins' onChange={this.handleChanges}>
+					<option value='0'>0</option>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+				</select>
+				<label>Vegetables</label>
+				<select name='vegetables' onChange={this.handleChanges}>
+					<option value='0'>0</option>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+				</select>
+				<label>Treats</label>
+				<select name='treats' onChange={this.handleChanges}>
+					<option value='0'>0</option>
+					<option value='1'>1</option>
+					<option value='2'>2</option>
+					<option value='3'>3</option>
+				</select>
+				
 
-				<button onSubmit={this.handleSubmit}> Add </button>
+{/* Delete func */}
+			{/* <span className="delete" onClick={e => {
+				e.stopPropagation();
+				deleteFood(addFood)
+				}
+			}>
+				x
+			</span> */}
+
+
+				<button> Add </button>
 			</form>
 		)
 	}
 }
 
-export default AddFoodForm
+export default AddFoodForm;
 
 // dairy, “fruits”, “grains”, “proteins”, “vegetables”, “treats”

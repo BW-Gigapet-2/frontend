@@ -31,7 +31,7 @@ export default function Login(props) {
         console.log(register)
     axiosWithAuth()
     //axios
-    .post('/auth/login', user)
+    .post('https://gigapet2020.herokuapp.com/api/auth/login', user)
     //.post('/users/login', login)
     .then(res => {
         console.log(res.data)

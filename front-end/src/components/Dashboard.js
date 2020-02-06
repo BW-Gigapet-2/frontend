@@ -46,14 +46,9 @@ return (
         <h1>Gigapet Dashboard</h1>
         <img src={img}/>
         <h3> Your Daily Pet Level:</h3>
-        <div petLevel = {petLevel} />
         {/* <button component={AddFoodForm}>Feed Your Pet</button> */}
-        <h3>Today's food entries:</h3>
-        <div>Here's where food entry will be</div>
-        {/* map function that shows today's intake */}
-        <h3>This week's food entries:</h3>
-        {/* map function that shows this week's intake */}
-        <h3>This month's food entries:</h3>
+        <h3>Food entries:</h3>
+        
         {/* map function that shows this month's intake */}
     </div>
 )
