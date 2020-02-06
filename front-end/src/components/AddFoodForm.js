@@ -2,18 +2,16 @@ import React, { Component } from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 export class AddFoodForm extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
-			addFood: {
-				date: '',
-				dairy: '',
-				fruits: '',
-				grains: '',
-				proteins: '',
-				vegetables: '',
-				treats: ''
-			}
+			
+			date: '',
+			category: '',
+			servings: '',
+			// name: '',
+			// pet_id: petId
+			
 		}
 	}
 
@@ -21,12 +19,9 @@ export class AddFoodForm extends Component {
 	
 	handleChanges = e => {
 		this.setState({
-			addFood: {
-
-				...this.state.addFood,
+				...this.state,
 				[e.target.name]: e.target.value
 
-			}
 		})
 	}
 	
@@ -34,14 +29,14 @@ export class AddFoodForm extends Component {
 		e.preventDefault()
 		axiosWithAuth()
 		.post(
-			`https://gigapet2020.herokuapp.com/api/parents/food/`,
-			this.state.addFood
+			`https://gigapet2021.herokuapp.com/api/meals`,
+			this.state.date
 			)
 			.then(res => {
-				this.setChange(res.this.setState())
+				this.setChange(this.setState())
 			})
 			.catch(err => console.log(err, 'err'))
-			// this.props.addFood(this.state.addFood);
+			
 		}
 		
 
@@ -49,7 +44,7 @@ export class AddFoodForm extends Component {
 
 		return (
 			<form onSubmit={this.handleSubmit}>
-			{console.log(this.state.addFood)}
+			{console.log(this.state)}
 				<label> Date: </label>
 				<input
 					type='date'
@@ -58,21 +53,23 @@ export class AddFoodForm extends Component {
 					placeholder='date'
 					onChange={this.handleChanges}
 				/>
-				<label>Dairy</label>
-				<select name='dairy' value={this.state.dairy} onChange={this.handleChanges}>
+				<label>Category</label>
+				<select name='category' value={this.state.category} onChange={this.handleChanges}>
+					<option value='dairy'>dairy</option>
+					<option value='fruit'>fruit</option>
+					<option value='grains'>grains</option>
+					<option value='vegetables'>vegetables</option>
+					<option value='protein'>protein</option>
+					<option value='treats'>treats</option>
+				</select>
+				<label>Servings</label>
+				<select name='servings' value={this.state.servings} onChange={this.handleChanges}>
 					<option value='0'>0</option>
 					<option value='1'>1</option>
 					<option value='2'>2</option>
 					<option value='3'>3</option>
 				</select>
-				<label>Fruits</label>
-				<select name='fruits' value={this.state.fruits} onChange={this.handleChanges}>
-					<option value='0'>0</option>
-					<option value='1'>1</option>
-					<option value='2'>2</option>
-					<option value='3'>3</option>
-				</select>
-				<label>Grains</label>
+				{/* <label>Grains</label>
 				<select name='grains' onChange={this.handleChanges}>
 					<option value='0'>0</option>
 					<option value='1'>1</option>
@@ -85,31 +82,8 @@ export class AddFoodForm extends Component {
 					<option value='1'>1</option>
 					<option value='2'>2</option>
 					<option value='3'>3</option>
-				</select>
-				<label>Vegetables</label>
-				<select name='vegetables' onChange={this.handleChanges}>
-					<option value='0'>0</option>
-					<option value='1'>1</option>
-					<option value='2'>2</option>
-					<option value='3'>3</option>
-				</select>
-				<label>Treats</label>
-				<select name='treats' onChange={this.handleChanges}>
-					<option value='0'>0</option>
-					<option value='1'>1</option>
-					<option value='2'>2</option>
-					<option value='3'>3</option>
-				</select>
-				
+				</select> */}
 
-{/* Delete func */}
-			{/* <span className="delete" onClick={e => {
-				e.stopPropagation();
-				deleteFood(addFood)
-				}
-			}>
-				x
-			</span> */}
 
 
 				<button> Add </button>

@@ -22,18 +22,17 @@ import { AddFoodForm } from './components/AddFoodForm'
 import UserContext from './components/UserContext'
 import TabNav from './components/TabNav'
 
-const foodArray = [
-	{catFood: {
-		date: '',
-		dairy: '',
-		fruits: '',
-		grains: '',
-		proteins: '',
-		vegetables: '',
-		treats: ''
-	}},
-]
-
+// const foodArray = [
+// 	{catFood: {
+// 		date: '',
+// 		dairy: '',
+// 		fruits: '',
+// 		grains: '',
+// 		proteins: '',
+// 		vegetables: '',
+// 		treats: ''
+// 	}},
+// ]
 
 //  -------- func ---------
 function App() {
@@ -44,7 +43,7 @@ function App() {
 		
 			axiosWithAuth()
 				.get(
-					`https://gigapet2020.herokuapp.com/api/parents/food`
+					`https://gigapet2020.herokuapp.com/api/parents/food/${petFoodLog}`
 					// localStorage.getItem('token')
 				)
 				.then(res => {
