@@ -21,6 +21,7 @@ import { AddFoodForm } from './components/AddFoodForm'
 import UserContext from './components/UserContext'
 import TabNav from './components/TabNav'
 import { FoodList } from './components/FoodList'
+import { MealCard } from './components/MealCard'
 
 // const foodArray = [
 // 	{catFood: {
@@ -47,6 +48,7 @@ function App() {
 					// localStorage.getItem('token')
 				)
 				.then(res => {
+					console.log(res)
 					setPetFoodLog(res.data)
 				})
 				.catch(err => console.log(err.res, 'Err'))
@@ -60,11 +62,11 @@ function App() {
 				{/* <h2> It's working in App.js {hardCode}</h2> */}
 				<Route exact path='/login' component={Login} />
 				<Route exact path='/register' component={Register} />
-				{/* <Link path='/login' component={Login} />
-        <Link path='/register' component={Register} />  */}
 				<PrivateRoute exact path='/' component={Dashboard} />
 				<PrivateRoute exact path='/meals' component={AddFoodForm} />
 				<PrivateRoute exact path='/foodlist' component={FoodList} />
+				<PrivateRoute exact path='/mealcard' component={MealCard} />
+			
 			</UserContext.Provider>
 		</div>
 	)

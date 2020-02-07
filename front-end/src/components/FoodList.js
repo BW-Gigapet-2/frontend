@@ -1,25 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-
-// const initialFoods = {
-//     date: '',
-//     category: '',
-//     servings: '',
-//     name: ''
-// }
-
-
-// const FoodList = ({ foods, updateFoods }) => {
-
-//         console.log(foods);
-//     const [ editing, ]
-
-
-// }
-
-// export default FoodList;
-
+import  UserContext  from './UserContext';
+import '../styling/Meal.css';
 
 const initialFoods = {
     date: '',
@@ -28,9 +11,14 @@ const initialFoods = {
     name: ''
 }
 
+
+
 export const FoodList = ({allFood, updateFoods}) => {
+    const { petFoodLog, setPetFoodLog } = useContext(UserContext);
     const [editing, setEditing] = useState(false);
     const [editedFood, setEditedFood] = useState(initialFoods);
+    
+    console.log(petFoodLog);
 
     const handleUpdate = e => {
         setEditedFood({
@@ -44,6 +32,21 @@ export const FoodList = ({allFood, updateFoods}) => {
         setEditedFood(item)
     };
 
+    const deleteFood = e => {
+
+        axiosWithAuth()
+            .delete(`https://gigapet2021.herokuapp.com/api/meals/${editedFood.id}`)
+            .then(res => {
+                console.log(res)
+                axiosWithAuth()
+                .get(`https://gigapet2021.herokuapp.com/api/meals`)
+                .then(res => {
+                    console.log(res)
+                    setPetFoodLog(res.data);
+                })
+                .catch(err => console.log('Error is in MealCard: Editing'))
+            })
+        }
     const saveEdit = e => {
         e.preventDefault();
 
@@ -56,7 +59,7 @@ export const FoodList = ({allFood, updateFoods}) => {
             .get(`https://gigapet2021.herokuapp.com/api/meals`)
             .then(res => {
                 console.log(res)
-                updateFoods(res.data);
+                setPetFoodLog(res.data);
             })
         })
         .catch(err => console.log('Error is in MealCard: Editing'))
@@ -64,7 +67,7 @@ export const FoodList = ({allFood, updateFoods}) => {
 
 return (
     <div className='meal-section'>
-        {allFood && allFood.map(item => (
+        {petFoodLog.map(item => (
             (editing && item.id === editedFood.id) ? (
                 <div className='meal-card' key={editedFood.id}>
                     <div className='edit-card'>
@@ -104,6 +107,7 @@ return (
 					/>
 				
 				<button onClick={saveEdit}> Save </button>
+                <button onClick={() => deleteFood(item)}>Delete</button>
             </div>
             </div>
             ) : 
@@ -115,8 +119,6 @@ return (
                     <h3>Date: {item.date}</h3> 
                     <button onClick={() => editFood(item)}>Edit</button>
                 </div>
-                
-            
         ))}
     </div>
 )

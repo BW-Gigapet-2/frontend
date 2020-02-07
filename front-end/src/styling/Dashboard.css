@@ -1,5 +1,10 @@
 .dashboard-page {
     background: rgb(239,121,135);
     background: linear-gradient(0deg, rgba(239,121,135,1) 0%, rgba(235,179,184,1) 90%);
-    
+    height: 100vh;
 }
+
+img {
+    border-radius: 2rem;
+}
+

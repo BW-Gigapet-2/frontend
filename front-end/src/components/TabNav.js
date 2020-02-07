@@ -17,7 +17,7 @@ const TabNav = () => {
 					</NavLink>
 				</Menu.Item>
 				<Menu.Item>
-					<NavLink exact to='/foodlist' activeClassName='nav-links'>
+					<NavLink exact to='/register' activeClassName='nav-links'>
 						Register
 					</NavLink>
 				</Menu.Item>
@@ -27,10 +27,15 @@ const TabNav = () => {
 					</NavLink>
 				</Menu.Item>
 				<Menu.Item>
-					<NavLink exact to='/register' activeClassName='nav-links'>
-						Register
+					<NavLink exact to='/foodlist' activeClassName='nav-links'>
+						Food List
 					</NavLink>
 				</Menu.Item>
+				{/* <Menu.Item>
+					<NavLink exact to='/mealCard' activeClassName='nav-links'>
+						Meal Cards
+					</NavLink> */}
+				{/* </Menu.Item> */}
 			</Menu>
 		</div>
 	)
