@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import history from '../history';
-
+import MealCard from './MealCard';
 
 export class AddFoodForm extends Component {
 	constructor() {
@@ -41,6 +41,7 @@ export class AddFoodForm extends Component {
 	render() {
 
 		return (
+				<div>
 			<form onChange={this.handleChange} onSubmit={this.handleSubmit}>
 			{console.log(this.state)}
 				<label> Date: </label>
@@ -53,6 +54,7 @@ export class AddFoodForm extends Component {
 				/>
 				<label>Category</label>
 				<select name='category' value={this.category} onChange={this.handleChanges}>
+					<option value='pick_one'>Pick one</option>
 					<option value='dairy'>dairy</option>
 					<option value='fruit'>fruit</option>
 					<option value='grains'>grains</option>
@@ -79,6 +81,10 @@ export class AddFoodForm extends Component {
 				
 				<button> Add </button>
 			</form>
+			{/* <MealCard name={this.state.name} servings={this.state.servings} category={this.state.category} date={this.state.date}/> */}
+			<MealCard />
+			
+			</div>
 		)
 	}
 }

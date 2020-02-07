@@ -31,6 +31,7 @@ return (
         <h3> Your Daily Pet Level:</h3>
         
         <h3>Food entries:</h3>
+        
         </div>
     </div>
 )

@@ -1,0 +1,17 @@
+.meal-section {
+    display: flex;
+    justify-content: center;
+}
+
+
+.meal-card {
+    background: rgb(140,98,57);
+    background: linear-gradient(0deg, rgba(140,98,57,1) 0%, rgba(191,140,88,1) 90%);
+    /* display: flex; */
+    justify-content: center;
+    width: 40%;
+    border-radius: 2rem;
+    margin: 2rem;
+    padding: 1rem;
+    color: white;
+}

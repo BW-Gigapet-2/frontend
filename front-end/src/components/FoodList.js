@@ -1,7 +1,24 @@
-import React, {Component, useState} from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import history from '../history';
-import '../styling/Card.css';
+
+// const initialFoods = {
+//     date: '',
+//     category: '',
+//     servings: '',
+//     name: ''
+// }
+
+
+// const FoodList = ({ foods, updateFoods }) => {
+
+//         console.log(foods);
+//     const [ editing, ]
+
+
+// }
+
+// export default FoodList;
 
 
 const initialFoods = {
@@ -11,7 +28,7 @@ const initialFoods = {
     name: ''
 }
 
-export const MealCard = ({allFood, updateFoods}) => {
+export const FoodList = ({allFood, updateFoods}) => {
     const [editing, setEditing] = useState(false);
     const [editedFood, setEditedFood] = useState(initialFoods);
 
@@ -104,56 +121,3 @@ return (
     </div>
 )
 }
-
-
-// export default MealCard;
-
-
-// export class MealCards extends Component {
-//     constructor(){
-//         super();
-//         this.state = {items: []}
-//     }
-
-// componentWillMount(){
-//     fetch: ( 'https://gigapet2021.herokuapp.com/api/meals')
-//     .then (res => res.json() )
-//     .then( {results: items}) => (this.setState({items}))
-// }
-
-// render(){
-//     let items = this.state.items
-//     return (
-//         <div>
-//             {items.map(item => 
-//             <Meal key={item.name} name={item} />
-//             )}
-//         </div>
-//     )
-
-//     }
-
-// const Meal = (props) => <h4>{this.props.name}</h4>
-////////////////////////WORKS////////////////////////////////
-// export default function MealCard(props) {
-//     return (
-//         <div className="meal-section">
-
-//         <div className="meal-card">
-//             {/* {this.state.map(history => (
-//             ))} */}
-
-//                 <div className='card'>
-//                 <h1> Food</h1>
-//                 <h3>Name: {props.name}</h3>
-//                 <h3>Servings: {props.servings}</h3>
-//                 <h3>Category: {props.category}</h3>
-//                 <h3>Date: {props.date}</h3>
-//             </div>
-
-//         </div>
-//         </div>
-//     )
-// }
-////////////////////////////////////////////////////////
-export default MealCard;

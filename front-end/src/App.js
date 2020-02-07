@@ -20,6 +20,7 @@ import { Dashboard } from './components/Dashboard'
 import { AddFoodForm } from './components/AddFoodForm'
 import UserContext from './components/UserContext'
 import TabNav from './components/TabNav'
+import { FoodList } from './components/FoodList'
 
 // const foodArray = [
 // 	{catFood: {
@@ -63,6 +64,7 @@ function App() {
         <Link path='/register' component={Register} />  */}
 				<PrivateRoute exact path='/' component={Dashboard} />
 				<PrivateRoute exact path='/meals' component={AddFoodForm} />
+				<PrivateRoute exact path='/foodlist' component={FoodList} />
 			</UserContext.Provider>
 		</div>
 	)

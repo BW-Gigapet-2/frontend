@@ -17,6 +17,11 @@ const TabNav = () => {
 					</NavLink>
 				</Menu.Item>
 				<Menu.Item>
+					<NavLink exact to='/foodlist' activeClassName='nav-links'>
+						Register
+					</NavLink>
+				</Menu.Item>
+				<Menu.Item>
 					<NavLink exact to='/login' activeClassName='nav-links'>
 						Login
 					</NavLink>
