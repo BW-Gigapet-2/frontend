@@ -30,9 +30,9 @@ border-radius: 2rem;
 }
 
 
-input {
+.inputGroup {
     border-radius: 1rem;
-    /* width: 60%; */
+    width: 60%;
     padding: 1rem;
     border: none;
     margin: 1rem;

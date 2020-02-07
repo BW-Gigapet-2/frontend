@@ -27,24 +27,24 @@ const RegistrationForm = props => {
 	}
 
 	return (
-	<div className='reg-page'>
+	<div className='reg-page m-2'>
 		<div className='reg-box'>
 		<container className='registerContainer'>
 			<h1>Register</h1>
 
 			<form onSubmit={handleSubmit}>
 				<input
+					className='inputGroup'
 					type='text'
 					name='username'
 					placeholder='Username'
-					className='inputBorder'
 					/>
 
 				<input
+					className='inputGroup'
 					type='password'
 					name='password'
 					placeholder='Password'
-					className='signUpInput inputBorder'
 					/>
 				<input type='submit' />
 			</form>

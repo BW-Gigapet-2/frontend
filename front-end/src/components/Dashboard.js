@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AddFoodForm } from './AddFoodForm';
 
+
 // components
 import img from '../img/a.png';
 import '../styling/Dashboard.css';
@@ -11,7 +12,7 @@ import { UserContext } from './UserContext';
 
 // --- component ---
 export const Dashboard = props => {
-    
+
 return (
     <div className='dashboard-page'>
         <div className='dashboard-cont'>
