@@ -1,0 +1,75 @@
+.reg-page{
+    background-color: #DEE58D;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.reg-box {
+background: rgb(64,96,161);
+background: linear-gradient(0deg, rgba(64,96,161,1) 0%, rgba(102,100,173,1) 90%);
+color: white;
+padding: 3rem;
+border-radius: 2rem;
+}
+
+.registerContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-items: space-between;
+}
+
+.label {
+    font-size: 1.6rem;
+    padding: 3rem;
+}
+
+
+.inputGroup {
+    border-radius: 1rem;
+    width: 60%;
+    padding: 1rem;
+    border: none;
+    margin: 1rem;
+    
+}
+
+button {
+    border-radius: 1rem;
+    background: rgb(239,121,135);
+    background: linear-gradient(0deg, rgba(239,121,135,1) 0%, rgba(235,179,184,1) 90%);
+    border: none;
+    padding: 1rem;
+    margin: 3rem;
+    text-decoration: none;
+    color: white;
+    width: 30%;
+    margin: 1rem;
+
+}
+
+.buttons {
+    border-radius: 1rem;
+    background: rgb(239,121,135);
+    background: linear-gradient(0deg, rgba(239,121,135,1) 0%, rgba(235,179,184,1) 90%);
+    border: none;
+    padding: 1rem;
+    margin: 3rem;
+    text-decoration: none;
+    color: white;
+    width: 50%;
+    margin: 1rem;
+
+}
+
+/* .buttons{
+    text-decoration: none;
+    background: rgb(239,121,135);
+    background: linear-gradient(0deg, rgba(239,121,135,1) 0%, rgba(235,179,184,1) 90%);
+
+} */

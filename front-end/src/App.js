@@ -16,24 +16,24 @@ import history from './history';
 //----- Components -------
 import Login from './components/Login'
 import Register from './components/Register'
-import { FoodLog } from './components/FoodLog'
 import { Dashboard } from './components/Dashboard'
 import { AddFoodForm } from './components/AddFoodForm'
 import UserContext from './components/UserContext'
 import TabNav from './components/TabNav'
+import { FoodList } from './components/FoodList'
+import { MealCard } from './components/MealCard'
 
-const foodArray = [
-	{catFood: {
-		date: '',
-		dairy: '',
-		fruits: '',
-		grains: '',
-		proteins: '',
-		vegetables: '',
-		treats: ''
-	}},
-]
-
+// const foodArray = [
+// 	{catFood: {
+// 		date: '',
+// 		dairy: '',
+// 		fruits: '',
+// 		grains: '',
+// 		proteins: '',
+// 		vegetables: '',
+// 		treats: ''
+// 	}},
+// ]
 
 //  -------- func ---------
 function App() {
@@ -44,10 +44,11 @@ function App() {
 		
 			axiosWithAuth()
 				.get(
-					`https://gigapet2020.herokuapp.com/api/parents/food`
+					`https://gigapet2021.herokuapp.com/api/meals`
 					// localStorage.getItem('token')
 				)
 				.then(res => {
+					console.log(res)
 					setPetFoodLog(res.data)
 				})
 				.catch(err => console.log(err.res, 'Err'))
@@ -61,10 +62,11 @@ function App() {
 				{/* <h2> It's working in App.js {hardCode}</h2> */}
 				<Route exact path='/login' component={Login} />
 				<Route exact path='/register' component={Register} />
-				{/* <Link path='/login' component={Login} />
-        <Link path='/register' component={Register} />  */}
 				<PrivateRoute exact path='/' component={Dashboard} />
-				<PrivateRoute exact path='/create' component={AddFoodForm} />
+				<PrivateRoute exact path='/meals' component={AddFoodForm} />
+				<PrivateRoute exact path='/foodlist' component={FoodList} />
+				<PrivateRoute exact path='/mealcard' component={MealCard} />
+			
 			</UserContext.Provider>
 		</div>
 	)

@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import {Link} from 'react-router-dom';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-
-
+import '../styling/Reg.css';
 // --- Login Page Function ---
 export default function Login(props) {
 // --- useForm ---
@@ -29,10 +28,10 @@ export default function Login(props) {
     const onSubmit = e => {
         e.preventDefault();
         console.log(register)
-    axiosWithAuth()
+    axios
     //axios
-    .post('https://gigapet2020.herokuapp.com/api/auth/login', user)
-    //.post('/users/login', login)
+    .post('https://gigapet2021.herokuapp.com/api/auth/login', user)
+
     .then(res => {
         console.log(res.data)
         localStorage.setItem('token', res.data.token);
@@ -45,18 +44,19 @@ export default function Login(props) {
     // --- Return Statement ---
     return (
     // --- Div container ---
-    <div>
-        <div>
-            <div>Login</div>
+    <div className="reg-page">
+        <div className="reg-box">
+            <container className='registerContainer'>
+            <h1>Login</h1>
             {/* <form onSubmit={handleSubmit(onSubmit)}> */}
     {/* --- Form --- */}
         <form onSubmit={onSubmit}>
         {/* --- Username Field --- */}
             {/* --- label --- */}
-            <label htmlFor="username">
-                {/* <span> Are you a new user? <Link tag={Link} to="/signup"> Sign up </Link></span> */}
+            {/* <label className='label' htmlFor="username">
+                
                 Username:
-                </label>
+                </label> */}
                 <input type="text"
                 name="username"
                 placeholder="username"
@@ -67,23 +67,13 @@ export default function Login(props) {
                 ///////////
                 />
 
-            {/* --- errors --- */}
-            {errors.username && errors.username.type === "required" && (
-                <span> Username is required </span>
-                )}
-            {errors.username && errors.username.type === "minLength" && (
-                <span> Username is too short </span>
-                )}
-            {errors.username && errors.username.type === "maxLength" && (
-                <span> Username is too long </span>
-                )}
         {/* --- End of Username Field--- */}
             
         {/* --- Password Field --- */}
             {/* --- label --- */}
-            <label htmlFor="password">
+            {/* <label className='label' htmlFor="password">
                 Password:  
-            </label>
+            </label> */}
             <input
                 type="password"
                 placeholder="Password"
@@ -95,23 +85,17 @@ export default function Login(props) {
                 //////////
                 />
             
-            {/* --- errors --- */}
-            {errors.password && errors.password.type === "required" && (
-                <span>Password is required</span>
-                )}
-            {errors.password && errors.password.type === "minLength" && (
-                <span> Password is too short - 3 characters</span>
-                )}
         {/* --- End of Password Field --- */}
 
         {/* --- Submit Button --- */}
                 <button>Let's Eat!</button>
         {/*  --- End of Submit Button --- */}
 
-                <button> <Link className='buttons' to={'/register'}>Register</Link></button>
+                <button><Link className='buttons' to={'/register'}>Register</Link></button>
 
         {/* --- End of Form --- */}
             </form>
+            </container>
     {/* --- End of Login container --- */}
             </div>
             </div>
